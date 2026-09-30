@@ -1,0 +1,17 @@
+:root{
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    margin-block: 0.67em;
+    font-size: 2em;
+}
+p{
+    font-size: max(1em , 12px);
+    line-height: max(1.5em , 18px);
+    padding: 0.5em 0.5em;
+}
+a{
+    text-decoration: underline;
+}
