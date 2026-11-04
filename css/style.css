@@ -6,6 +6,13 @@
 }
 body{
     margin: 0px;
+    background-color: #fff;
+    /* Jakub Hałun https://commons.wikimedia.org/wiki/User:Jakubhal   */
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 h1{
     margin-block: 0.67em;
@@ -41,11 +48,27 @@ footer{
         text-align: center;
     }
 }
+@media (orientation: landscape) {
+        article{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+@media (orientation: portrait) {
+    article{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
 article{
-    margin-left: max(20%, 1em);
-    margin-right: max(20%, 1em);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    backdrop-filter: blur(0.5em) contrast(75%) brightness(125%);
+    padding: 0.5em;
+    border-radius: 0.5em;
 }
 nav{
+    z-index: 1024;
     a{
         text-align: center;
         font-size: 1em;
