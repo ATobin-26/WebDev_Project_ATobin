@@ -1,14 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 :root{
-    background-color: #fff;
-    color: #000;
+    /* set up colour variables for easier colour management */
+    
+    @media (prefers-color-scheme: light) {
+        --primary-font-colour:#000;
+        --primary-background-colour:#FFF;
+        --secondary-font-colour:#FFF;
+        --secondary-background-colour:#333;
+        --tertiary-font-colour:#000;
+        --tertiart-background-clour:#999;
+
+        --primary-acent-colour:#359;
+        --secondary-acent-colour:#000;
+        --tertiary-acent-colour:#000;
+
+        --primary-border-colour:#999;
+
+        --default-link-colour:#00A;
+        --default-link-hover-colour:#4ce;
+        --default-link-visted-colour:#fff;
+    }
+    @media (prefers-color-scheme: dark) {
+        
+    }
+    background-color: var(--primary-background-colour);
+    color: var(--primary-font-colour);
     font-family: "IBM Plex Sans"  , Arial, Helvetica, sans-serif;
 }
 body{
     margin: 0px;
-    background-color: #fff;
+    background-color: var(--primary-background-colour);
     /* Jakub Hałun https://commons.wikimedia.org/wiki/User:Jakubhal   */
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg);
+    /*
+    background-image: image-set(
+         url("https://upload.wikimedia.org/wikipedia/commons/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg")
+          x1 ,
+         url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg/3840px-Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg")
+          x1.2 ,
+         url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg/1280px-Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg")
+          x2 ,
+         url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg/960px-Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg")
+          x4 ,
+         url("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg/330px-Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg")
+          x8
+         
+         );*/
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Snow-covered_trees_on_the_summit_of_Obidowiec_in_the_Gorce_Mountains%2C_20260103_1202_6765.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,27 +62,39 @@ p{
 }
 a{
     text-decoration: underline;
+    color: var(--default-link-colour);
 }
 a:hover{
-    color: #4cf;
+    color: var(--default-link-hover-colour);
 }
 table{
     width: 100%;
 }
 img{
     width: 100%;
+    height: auto;
     max-width: 100vw;
+    max-height: 100vh;
 }
 footer{
+    z-index: 1023;
     text-align: center;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-background-colour);
+    color: var(--secondary-font-colour);
     padding: 1em;
+    table tr th{
+        font-weight: bold;
+        font-size: max(1.2em, 12px);
+    }
     table tr td{
         text-align: center;
     }
     p{
         text-align: center;
+    }
+    a{
+        color: var(--secondary-font-colour);
+        text-decoration: underline;
     }
 }
 @media (orientation: landscape) {
@@ -64,24 +113,29 @@ article{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     backdrop-filter: blur(0.5em) contrast(75%) brightness(125%);
+    /*filter: drop-shadow(0 0 0.5em black);*/
     padding: 0.5em;
+    border-width: 20px;
+    border-color: var(--primary-border-colour);
     border-radius: 0.5em;
 }
 nav{
     z-index: 1024;
     a{
         text-align: center;
-        font-size: 1em;
-        color: #fff;
+        font-size: max(1.5em , 18px);
+        color: var(--secondary-font-colour);
         padding: 0.5em;
-        height: max(48px, 1em);        
+        min-height: max(48px, 2em);
+        min-width: max(48px, 2em);  
     }
     a:hover{
-        color: #fb2;
+        color: var(--secondary-font-colour);
+        background-color: var(--secondary-acent-colour);
     }
     display: flex;
     justify-content: space-around;
-    background-color: #3be;
+    background-color: var(--primary-acent-colour);
     position: sticky;
     top: 0px;
 }
@@ -90,3 +144,4 @@ figure{
     padding: 0.25em;
     
 }
+
